@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<body>
+    <div class="main-container">
+        <h1>{{ title }}</h1>
+        <div class="container">
+            <div class="sidebar">
+                <h2>Elections Map</h2>
+                <form method="POST" class="ui form">
+                    {{ form.hidden_tag() }}
+                    <div class="field">
+                        {{ form.variable.label }}<br>
+                        {{ form.variable(class="ui dropdown") }}
+                    </div>
+                    <div class="field">
+                        {{ form.submit(class="ui button primary") }}
+                    </div>
+                </form>
+                <div class="barplot">
+                    {{ bar_html | safe }}
+                </div>
+            </div>
+            <div class="map">
+                {{ graph_html | safe }}
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+
